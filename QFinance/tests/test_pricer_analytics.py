@@ -24,4 +24,4 @@ def test_quantum_pricing_and_analytics():
         analytics = QuantumAnalytics(t, k, EXPIRY_DAYS)
         analytics.calculate_quantum_greeks()
         analytics.run_stress_test()
-        # analytics.visualize_payoff_grid()                 # In a CI environment, skip 3D visualization
+        analytics.visualize_payoff_grid()                 # In a CI environment, skip 3D visualization
