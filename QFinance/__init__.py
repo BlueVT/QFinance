@@ -1,4 +1,3 @@
-"""A short description of the project (less than one line)."""
+"""A quantum-enhanced toolkit for advanced financial modeling and risk analysis."""
 
-# Add imports here
 from QFinance import *

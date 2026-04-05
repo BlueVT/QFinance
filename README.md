@@ -36,8 +36,7 @@ from qiskit import Aer
 from qiskit.utils import QuantumInstance
 
 # Initialize the quantum classifier
-classifier = QuantumRiskScorer(sampler=QuantumInstance(Aer.get_backend('qasm_simulator'), shots=1024),
-                                fidelity=FidelityQuantumKernel)
+classifier = QuantumRiskScorer(sampler=QuantumInstance(Aer.get_backend('qasm_simulator'), shots=1024), fidelity=FidelityQuantumKernel)
 
 # Train with historical data
 X_train = [...]  # Your feature data
