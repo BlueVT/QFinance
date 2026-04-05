@@ -70,6 +70,7 @@ class QuantumPortfolio:
         
         # Calculate daily returns
         returns = data.pct_change().dropna()
+        returns = returns.dropna(axis=1)
         
         # Annualize (252 trading days)
         mu = returns.mean() * 252
