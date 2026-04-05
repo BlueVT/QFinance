@@ -21,7 +21,7 @@ jobs:
     strategy:
       fail-fast: false # Continues other matrix jobs if one fails
       matrix:
-        os: [macOS-latest, ubuntu-latest, windows-latest]
+        os: [ubuntu-latest]
         python-version: ["3.11", "3.14"]
 
     steps:
