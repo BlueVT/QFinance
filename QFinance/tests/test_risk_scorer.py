@@ -1,4 +1,3 @@
-import pytest
 import numpy as np
 from qiskit.primitives import StatevectorSampler as Sampler
 from qiskit_algorithms.state_fidelities import ComputeUncompute

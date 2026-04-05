@@ -69,8 +69,7 @@ class QuantumPortfolio:
         data = yf.download(self.tickers, period="1y", progress=False)['Close']
         
         # Calculate daily returns
-        returns = data.pct_change().dropna()
-        returns = returns.dropna(axis=1)
+        returns = data.pct_change().dropna().dropna(axis=1).fillna(0)
         
         # Annualize (252 trading days)
         mu = returns.mean() * 252

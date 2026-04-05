@@ -56,7 +56,7 @@ jobs:
         # Added -W ignore to suppress the 10k+ Qiskit/Python3.14 warnings in the logs
         shell: bash -l {0}
         run: |
-          pytest -v --cov=QFinance --cov-report=xml --color=yes -W ignore QFinance/tests/
+          pytest -v --cov=QFinance --cov-report=xml --color=yes
 
       - name: CodeCov
         uses: codecov/codecov-action@v5

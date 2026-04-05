@@ -20,7 +20,8 @@ classifiers = [
 ]
 requires-python = ">=3.8"
 dependencies = [
-  "pytest>=6.1.2",
+  "pytest",
+  "pytest-cov",
   "qiskit>=1.0.0",
   "qiskit-finance>=0.4.1",
   "qiskit_aer",
@@ -40,7 +41,8 @@ dependencies = [
 
 [project.optional-dependencies]
 test = [
-  "pytest>=6.1.2",
+  "pytest",
+  "pytest-cov",
   "qiskit>=1.0.0",
   "qiskit-finance>=0.4.1",
   "qiskit_aer",
