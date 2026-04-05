@@ -1,22 +1,29 @@
 name: docs_QFinance
 channels:
-
   - conda-forge
-
   - defaults
 dependencies:
-    # Base depends
+  # Base dependencies
   - python
   - pip
   
+  # Sphinx Documentation Tools
+  - sphinx
   - pydata-sphinx-theme
   - sphinx-design
   - sphinx-copybutton
 
-
-
-
-    # Pip-only installs
+  # Core QFinance Dependencies (Required to import code for docs)
+  - numpy
+  - pandas
+  - scipy
+  - yfinance
+  - matplotlib
+  
   - pip:
-    - -e ../
-
+    - qiskit
+    - qiskit-finance
+    - qiskit-aer
+    - qiskit-algorithms
+    - qiskit-optimization
+    - qiskit-machine-learning

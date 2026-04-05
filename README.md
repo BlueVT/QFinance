@@ -5,7 +5,11 @@ QFinance
 [![codecov](https://codecov.io/gh/REPLACE_WITH_OWNER_ACCOUNT/QFinance/branch/main/graph/badge.svg)](https://codecov.io/gh/REPLACE_WITH_OWNER_ACCOUNT/QFinance/branch/main)
 
 
-A short description of the project (less than one line).
+### **1. Installation**
+Create a clean environment and install in editable mode:
+```bash
+pip install -e .
+```
 
 ### Copyright
 

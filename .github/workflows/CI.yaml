@@ -4,8 +4,6 @@ permissions:
   contents: read
 
 on:
-  # GitHub has started calling new repo's first branch "main" https://github.com/github/renaming
-  # The cookiecutter uses the "--initial-branch" flag when it runs git-init
   push:
     branches:
       - "main"
@@ -14,8 +12,6 @@ on:
       - "main"
   schedule:
     # Weekly tests run on main by default:
-    #   Scheduled workflows run on the latest commit on the default or base branch.
-    #   (from https://help.github.com/en/actions/reference/events-that-trigger-workflows#scheduled-events-schedule)
     - cron: "0 0 * * 0"
 
 jobs:
@@ -23,6 +19,7 @@ jobs:
     name: Test on ${{ matrix.os }}, Python ${{ matrix.python-version }}
     runs-on: ${{ matrix.os }}
     strategy:
+      fail-fast: false # Continues other matrix jobs if one fails
       matrix:
         os: [macOS-latest, ubuntu-latest, windows-latest]
         python-version: ["3.11", "3.12", "3.13"]
@@ -56,10 +53,10 @@ jobs:
           micromamba list
 
       - name: Run tests
-        # conda setup requires this special shell
+        # Added -W ignore to suppress the 10k+ Qiskit/Python3.14 warnings in the logs
         shell: bash -l {0}
         run: |
-          pytest -v --cov=QFinance --cov-report=xml --color=yes QFinance/tests/
+          pytest -v --cov=QFinance --cov-report=xml --color=yes -W ignore QFinance/tests/
 
       - name: CodeCov
         uses: codecov/codecov-action@v5
@@ -67,3 +64,4 @@ jobs:
           files: ./coverage.xml
           flags: unittests
           name: codecov-${{ matrix.os }}-py${{ matrix.python-version }}
+          # If this step fails, you may need to add: token: ${{ secrets.CODECOV_TOKEN }}

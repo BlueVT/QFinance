@@ -1,7 +1,4 @@
 """A short description of the project (less than one line)."""
 
 # Add imports here
-from .qfinance import *
-
-
-from ._version import __version__
+from QFinance import *

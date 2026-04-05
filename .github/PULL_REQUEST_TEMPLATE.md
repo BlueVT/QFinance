@@ -3,7 +3,7 @@ Provide a brief description of the PR's purpose here.
 
 ## Todos
 Notable points that this PR has either accomplished or will accomplish.
-  - [ ] TODO 1
+  - [ ] All quantum tests pass locally (pytest)
 
 ## Questions
 - [ ] Question1
