@@ -11,9 +11,25 @@ from qiskit_machine_learning.kernels import FidelityQuantumKernel
 
 class QuantumRiskScorer:
     """
-    Uses Quantum ML (QSVC) to predict credit defaults.
+    Uses Quantum Machine Learning (QSVC) to predict credit default risk.
+
+    Attributes:
+    - feature_map (ZZFeatureMap): Encodes data into quantum states.
+    - kernel (FidelityQuantumKernel): Quantum kernel based on fidelity.
+    - qsvc (QSVC): Quantum Support Vector Classifier for risk prediction.
+
+    Methods:
+    - train_model(X_train, y_train): Fits the QSVC model on training data.
+    - predict_default(client_data): Predicts default risk for new client data.
     """
     def __init__(self, sampler, fidelity_algorithm):
+        """
+        Initializes the QuantumRiskScorer with a specific sampler and fidelity algorithm.
+
+        Args:
+        - sampler: Quantum sampler object for circuit execution.
+        - fidelity_algorithm: Fidelity measure used in the quantum kernel.
+        """
         # 1. Define the Feature Map (Entangles data into 3 qubits)
         self.feature_map = ZZFeatureMap(feature_dimension=3, reps=2)
         
@@ -28,14 +44,23 @@ class QuantumRiskScorer:
 
     def train_model(self, X_train, y_train):
         """
-        Trains the QSVC on historical credit data.
+        Trains the QSVC classifier on historical credit data.
+
+        Args:
+        - X_train: Feature matrix of training data.
+        - y_train: Labels indicating default (1) or safe (0).
         """
         self.qsvc.fit(X_train, y_train)
 
     def predict_default(self, client_data):
         """
-        Predicts risk for new data.
-        client_data: 2D array-like [[debt_ratio, stability, history]]
+        Predicts the default risk for a new client.
+
+        Args:
+        - client_data: 2D array-like with features [[debt_ratio, stability, history]].
+
+        Returns:
+        - str: "Default Risk" if predicted as default, otherwise "Safe".
         """
         prediction = self.qsvc.predict(client_data)
         return "Default Risk" if prediction[0] == 1 else "Safe"
@@ -58,12 +83,21 @@ class QuantumPortfolio:
     - optimize_allocation(risk_appetite=0.5): Uses QAOA to select the optimal subset of stocks.
     """
     def __init__(self, tickers, sampler):
+        """
+        Initializes the QuantumPortfolio with tickers and a quantum sampler.
+
+        Args:
+        - tickers (list): List of stock ticker symbols.
+        - sampler: Quantum sampler object for circuit execution.
+        """
         self.tickers = tickers
         self.sampler = sampler
         self.num_assets = len(tickers)
 
     def _fetch_market_data(self):
-        """Internal helper to get annualized returns and covariance."""
+        """
+        Fetches 1-year historical data and computes annualized returns and covariance.
+        """
         print(f"Fetching 1-year historical data for {self.tickers}...")
         # Get last 1 year of Close prices
         data = yf.download(self.tickers, period="1y", progress=False)['Close']

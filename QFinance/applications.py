@@ -1,10 +1,21 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
 
 class QuantumAnalytics:
     """
-    Advanced analytics for Quantum Option Pricing, including Greeks and Stress Testing.
+    Provides advanced analytics for Quantum Option Pricing, including the calculation of Greeks,
+    visualization of the option payoff surface, and stress testing scenarios.
+    
+    Attributes:
+    - ticker (str): The asset ticker symbol.
+    - strike (float): The strike price of the option.
+    - expiry (str or datetime): The expiration date of the option.
+    - params (dict): Optional parameters for custom configurations (e.g., default surface ranges, quantum circuit settings, etc.).
+
+    Methods:
+    - visualize_payoff_grid(): Creates a 3D surface plot of option price over spot and volatility.
+    - calculate_quantum_greeks(): Computes Delta and Vega for the option.
+    - run_stress_test(): Simulates market crash scenarios.
     """
     def __init__(self, ticker, strike, expiry):
         from .pricer import QuantumPricer

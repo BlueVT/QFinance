@@ -34,7 +34,7 @@ Welcome to QFinance's documentation!
 
          To the User Guide
       
-      
+
 
     .. grid-item-card:: API Reference
       :margin: 0 3 0 0
@@ -72,4 +72,13 @@ Welcome to QFinance's documentation!
    user_guide
    api
    developer_guide
-
+   autosummary/QFinance.applications
+   autosummary/QFinance.applications.QuantumAnalytics
+   autosummary/QFinance.generators
+   autosummary/QFinance.generators.QuantumMarketGenerator   
+   autosummary/QFinance.montecarlo
+   autosummary/QFinance.montecarlo.QuantumMonteCarloPricer
+   autosummary/QFinance.pricer
+   autosummary/QFinance.pricer.QuantumPricer
+   autosummary/QFinance.strategies
+   

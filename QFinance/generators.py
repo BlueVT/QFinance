@@ -1,6 +1,5 @@
 import numpy as np
 from qiskit.circuit.library import RealAmplitudes
-from qiskit import QuantumCircuit
 
 class QuantumMarketGenerator:
     """
@@ -10,16 +9,24 @@ class QuantumMarketGenerator:
     correlated market movements across multiple tickers. It leverages a quantum sampler to 
     generate probabilistic 'Market Day' outcomes.
 
-    Attributes:
-    - tickers (list): List of asset ticker symbols.
-    - num_assets (int): Number of assets (length of tickers).
-    - sampler (QuantumSampler): Quantum sampler used to run quantum circuits.
-    - ansatz (RealAmplitudes): Variational quantum circuit with full entanglement between assets.
+    Attributes
+    ----------
+    tickers : list
+        List of asset ticker symbols.
+    num_assets : int
+        Number of assets (length of tickers).
+    sampler : QuantumSampler
+        Quantum sampler used to run quantum circuits.
+    ansatz : RealAmplitudes
+        Variational quantum circuit with full entanglement between assets.
 
-    Methods:
-    - simulate_next_move(): Executes the ansatz circuit with random parameters, measures, and 
-      interprets the result as market moves for each ticker.
+    Methods
+    -------
+    simulate_next_move()
+        Executes the ansatz circuit with random parameters, measures, and 
+        interprets the result as market moves for each ticker.
     """
+
     def __init__(self, tickers, sampler):
         self.tickers = tickers
         self.num_assets = len(tickers)

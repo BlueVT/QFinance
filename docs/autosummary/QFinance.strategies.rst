@@ -9,5 +9,6 @@
    .. autosummary::
    
       QuantumPortfolio
+      QuantumRiskScorer
       QuantumVaR
    

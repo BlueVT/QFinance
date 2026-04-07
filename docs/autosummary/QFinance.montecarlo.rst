@@ -1,7 +1,7 @@
-﻿QFinance.monte\_carlo
-=====================
+﻿QFinance.montecarlo
+===================
 
-.. automodule:: QFinance.monte_carlo
+.. automodule:: QFinance.montecarlo
 
    
    .. rubric:: Classes

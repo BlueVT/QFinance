@@ -1,6 +1,6 @@
 from QFinance.pricer import QuantumPricer
 from QFinance.applications import QuantumAnalytics
-from QFinance.monte_carlo import QuantumMonteCarloPricer
+from QFinance.montecarlo import QuantumMonteCarloPricer
 
 def test_quantum_pricing_and_analytics():
     """Test T1: Standard Pricing, Monte Carlo, and Advanced Analytics."""
